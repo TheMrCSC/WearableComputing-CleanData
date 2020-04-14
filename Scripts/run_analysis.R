@@ -1,4 +1,4 @@
-
+library(dplyr)
 #the below script contains the mergeTestTrain function which merges the two 
 #datasets. This function is created since this process has to be done 
 #individually for each and every file.
@@ -24,3 +24,6 @@ compData <- cbind(subject,y,x[,grep("mean()|std()",features$V2)])
 compData$activity<- merge(compData, activity_labels, by.x = "activity", 
                   by.y = "act_code", all = FALSE)[,"act_label"]
 
+compData_group <- group_by(compData, subject, activity)
+sol <- summarise_all(compData_group,mean, na.rm = TRUE)
+                 

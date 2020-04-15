@@ -9,7 +9,7 @@ Even though the data it self is different, the columns and their definition is
 the same.  
 
 This code book contains the column definitions for the averaged dataset.  
-***
+
 subject <BR><BR>
 This is the code number for the subject. There are 30 subjects as part of this
 test. Hence the value of subject will vary from 1 to 30  <BR><BR>
@@ -28,7 +28,7 @@ From here on out all the variables are the averages of the different measurement
 that have been taken.<BR><BR>
 
 *from the original document: features_info.txt. Emphasis is my own and the text has been 
-redued to include only required information*<BR><BR>
+reduced to include only required information*<BR><BR>
 
 The features selected for this database come from the accelerometer and gyroscope 
 3-axial raw signals **tAcc-XYZ** and **tGyro-XYZ**. <BR>
@@ -142,5 +142,9 @@ fBodyAccJerkMag-std()  <BR>
 fBodyGyroMag-mean()     <BR>
 fBodyGyroMag-std()     <BR>
 fBodyGyroJerkMag-mean() <BR>
-fBodyGyroJerkMag-std()  <BR>
-
+fBodyGyroJerkMag-std()  <BR><BR>
+  
+The details about the cleaning process have been mentioned in ReadMe.md.<BR>
+This includes the issues in the original data and the steps taken for the cleaning.<BR><BR>
+  
+END OF DOCUMENT

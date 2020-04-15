@@ -65,12 +65,12 @@ fBodyGyro-XYZ<BR>
 fBodyAccMag<BR>
 fBodyAccJerkMag<BR>
 fBodyGyroMag<BR>
-fBodyGyroJerkMag<BR><BR>
+fBodyGyroJerkMag<BR>
 
 The set of variables that were estimated from these signals are: <BR>
 <BR>
 mean(): Mean value<BR>
-std(): Standard deviation<BR><BR>
+std(): Standard deviation<BR>
 
 *there are other calculations in the source which have been ignored as part of the
 data tyding process*<BR>

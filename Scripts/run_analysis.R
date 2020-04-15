@@ -38,13 +38,19 @@ colnames(activity_labels)<- c("act_code", "act_label")
 features <- read.table(".\\Source\\UCI HAR Dataset\\features.txt")
 
 
+#there are feature names where Body is repeated in the name. This is incorrect
+#as it is not mentioned in features_info.txt
+#correcting this issue here
+features$V2 <- sub("BodyBody", "Body", features$V2)
+
+
 #assigning the actual feature names as column names
 colnames(x) <- features[,2]
 
 
 #combining subject code, activity code, and all mean and standard deviation 
 #features mentioned in the features file
-compData <- cbind(subject,y,x[,grep("mean()|std()",features$V2)])
+compData <- cbind(subject,y,x[,grep("mean\\(\\)|std\\(\\)",features$V2)])
 
 
 #updatin the activity code with the activity lables from the activity lable 
@@ -54,7 +60,7 @@ compData$activity<- merge(compData, activity_labels, by.x = "activity",
 
 
 #deleting data.frames that are not required to save memory
-rm(x);rm(y);rm(subject);rm(features);rm(activity_labels)
+#rm(x);rm(y);rm(subject);rm(features);rm(activity_labels)
 
 
 #creating a data.frame with a group by on subject and activity and summarized to

@@ -44,7 +44,7 @@ The issues observed in this project are as follows:<br>
 15. group by and summerization will be done to get the final "solution" data.frame
    <BR><BR>
 
-##Column Definitons
+## Column Definitons
 
 subject <BR><BR>
 This is the code number for the subject. There are 30 subjects as part of this

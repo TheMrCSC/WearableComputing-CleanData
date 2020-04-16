@@ -1,14 +1,50 @@
 
-## Code Book
+# Code Book
 
 This document contains meaning for all the columns mentioned in the tidy file 
 created as part of this project. There are 68 columns and 10299 observations 
 in the data file there are 68 columns and 35 observations. This file contains 
 the average data which is grouped by subject and activity.
 Even though the data it self is different, the columns and their definition is
-the same.  
+the same.   
 
-This code book contains the column definitions for the averaged dataset.  
+## Issues in Data
+The issues observed in this project are as follows:<br>
+1. Data has been split into Test and Train: For analysis it is better for us to have one single data set rather than 2 different data sets.
+2. Data in each Test and Train has been split into 3 sections
+    1. subject codes - subject_test.txt and subject_train.txt
+    2. activity they were performing - y_test.txt and y_train.txt 
+    3. contains the data values - x_test.txt and x_train.txt<BR>
+  For our purposes it is better to have a single dataset containing data from all three files.
+3. There are no column names for the data in any files. Appropriate column names need to be added
+4. The activities mentioned in y_test.txt and y_train.txt are in coded form. This will have to be converted to actual activity names.
+5. Some feature names mentioned in features.txt have an issue where "Body" is mentioned twice when it should be just once. i.e. it is "BodyBody" it should be "Body". This will be corrected.
+<BR><BR>
+
+## Step-by-Step cleanup process:
+01. Merge test and  train datasets: This will be done using a purpose built function called mergeTestTrain which is in common_funtions.R in the mergeTestTrain function the following steps are taken:
+    1. the call statement will pass the file names for the test and train files
+    2. both test and train files will be read to 2 different data.frames by appending the filename with the common path
+    3. the data.frames will be merged by using the rbind() function
+    4. the original test and train data.frames will be deleted
+    5. the combined data.frame will be returned.
+02. the mergeTestTrain function will be executed for the subject files i.e. subject_test.txt and subject_train.txt
+03. a proper columnname will be assigned to the columns in subject data.frame
+04. mergeTestTrain will be used to merge the x files i.e. x_test.txt and x_train.txt
+05. mergeTestTrain will be used to merge the y files i.e. y_test.txt and y_train.txt
+06. column name "activity" will be assigned to y data.frame
+07. activity_labels.txt will be read into data.frame
+08. column names will be assigned to activity_labels data.frame
+09. features.txt will be read into data.frame
+10. "BodyBody" will be converted to "Body" using sub function
+11. x data.frame will have column names assigned to it from features data.frame
+12. combined data.frame will be created with subject, y and mean() and std() columns from x
+13. activty numbers will be replaced with activity names in the activity column
+14. unwanted data.frames will be deleted
+15. group by and summerization will be done to get the final "solution" data.frame
+   <BR><BR>
+
+##Column Definitons
 
 subject <BR><BR>
 This is the code number for the subject. There are 30 subjects as part of this
